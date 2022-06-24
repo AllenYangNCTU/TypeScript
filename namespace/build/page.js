@@ -1,6 +1,12 @@
 "use strict";
 var Components;
 (function (Components) {
+    let SubComponents;
+    (function (SubComponents) {
+        class Test {
+        }
+        SubComponents.Test = Test;
+    })(SubComponents = Components.SubComponents || (Components.SubComponents = {}));
     class Header {
         constructor() {
             const elem = document.createElement("div");
@@ -26,10 +32,14 @@ var Components;
     }
     Components.Footer = Footer;
 })(Components || (Components = {}));
+//<reference path="./components.ts" />
 var Home;
 (function (Home) {
     class Page {
         constructor() {
+            this.user = {
+                name: "AllenYang",
+            };
             new Components.Header();
             new Components.Content();
             new Components.Footer();
